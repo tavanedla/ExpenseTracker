@@ -1,0 +1,37 @@
+<div class="modal">
+	<ion-header-bar class="bar-secondary">
+      <h1 class="title">New Value</h1>
+      <button class="button button-clear button-positive" ng-click="closeAddValue()">Cancel</button>
+    </ion-header-bar>
+    <ion-content>
+    	<form ng-submit='addValue(value)' class="css-form">
+	    	<div class='list list-inset'>
+				<label class="item item-input">
+					<span class="input-label">Date</span>
+					<input type="date" ng-model="value.date" required>
+				</label>
+				<label class="item item-input">
+					<span class="input-label" >Amount</span>
+			  		<input type="number" ng-model="value.amount" required>
+				</label>
+				<label class="item item-input item-select">
+					<div class="input-label">Category</div>
+					<select ng-model="value.category" required>
+						<option>Entertainment</option>
+						<option>Food</option>
+						<option>Fuel</option>
+						<option>Household</option>
+						<option>None</option>
+					</select>
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Description</span>
+			  		<input type="text" ng-model="value.description">
+				</label>
+			</div>
+			<div class="padding">
+        	  <button type="submit" class="button button-block button-positive">Add Value</button>
+        	</div>
+		</form>
+	</ion-content>
+</div>
