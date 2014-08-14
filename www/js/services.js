@@ -29,7 +29,7 @@
 		};
 	});
 
-	app.factory('Storage',function() {
+	app.factory('StorageFactory',function() {
 		return {
 			getExpenses: function() {
 				var expenses = window.localStorage['expenses'];

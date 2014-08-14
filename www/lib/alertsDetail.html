@@ -1,0 +1,10 @@
+<ion-content>
+	<ion-list>
+		<ion-item ng-repeat="expense in alerts[alertId].expenses" class="card">
+			<b>Date</b> : {{expense.date}}<br/>
+			<b>Amount</b> : {{expense.amount}}<br/>
+			<b>Category</b> : {{expense.category}}<br/>
+			<b>Description</b> : {{expense.description}}
+		</ion-item>
+	</ion-list>
+<ion-content>

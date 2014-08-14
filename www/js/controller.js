@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('Controller',['ionic','ngRoute','Services']);
 
-	app.controller('AppController',function($scope,$ionicModal,$routeParams,alertService,Storage) {
+	app.controller('AppController',function($scope,$ionicModal,$routeParams,alertService,StorageFactory) {
 
 		//expenses data. date format: yyyy-mm-dd
 		//$scope.data = [
@@ -13,7 +13,7 @@
 	  	//	{ 'date': '2011-12-12', 'amount': 800, 'category': 'Fuel', 'description': ''},
 	  	//];	
 	  	
-	  	$scope.data = Storage.getExpenses();
+	  	$scope.data = StorageFactory.getExpenses();
 	  	//the data that is used in graph and to calculate alerts
 	  	$scope.displayData = [];
 	  	
@@ -24,7 +24,7 @@
  		$scope.updateGraph = 1;
 
 	  	//user settings
-	  	$scope.settings = Storage.getSettings();
+	  	$scope.settings = StorageFactory.getSettings();
 	  	//$scope.settings = {
 	  	//	limitMax: 500,
 	  	//	groupBy: 'Do not group',
@@ -68,7 +68,7 @@
 	    $scope.addValue = function() {
       		$scope.data.push($scope.value);
       		$scope.data.sort(compare);
-      		Storage.saveExpenses($scope.data);
+      		StorageFactory.saveExpenses($scope.data);
       		filterData();
       		if($scope.settings.groupBy == "Daily") {
     			groupByDate();
@@ -102,7 +102,7 @@
 
 	    $scope.applySettings = function() {
 		    $scope.settings = $scope.newSettings;
-		    Storage.saveSettings($scope.settings);
+		    StorageFactory.saveSettings($scope.settings);
 		    $scope.settingsModal.hide();
 		    filterData();
 		    //$scope.displayData = [];

@@ -1,0 +1,38 @@
+<ion-side-menus>
+  <!-- Center Content -->
+  <ion-side-menu-content>
+    <ion-header-bar class="bar-royal">
+      <button class="button button-icon" ng-click="showSettings()">
+        <i class="icon ion-navicon-round"></i>
+      </button>
+      <h1 class="title">Expense Tracker</h1>
+      <button class="button button-icon" ng-click="toggleAdd()">
+        <i class="icon ion-plus-circled"></i>
+      </button>
+    </ion-header-bar>
+    <ion-content>
+    </ion-content>
+    <div class="tabs">
+      <a class="tab-item" href="#alerts">
+        Alerts
+      </a>
+      <a class="tab-item" href="#expenses">
+        All expenses
+      </a>
+    </div>
+  </ion-side-menu-content>
+
+  <!-- Side Menu        
+  <ion-side-menu side="left">         
+    <ion-header-bar class="bar-dark">           
+      <h1 class="title">Options</h1>         
+    </ion-header-bar>         
+    <ion-content scroll="false">           
+      <ion-list>
+        <ion-item ng-repeat="option in options" ng-click="selectOption(option,$index)" ng-class="{active: activeOption == option}">               
+          {{option.name}}
+        </ion-item>           
+      </ion-list>         
+    </ion-content>       
+  </ion-side-menu> -->     
+</ion-side-menus>  
