@@ -34,7 +34,7 @@
 	});
 
 	app.controller('ExpenseController',function($scope,$ionicModal,alertService,StorageFactory) {
-		$scope.expenses = StorageFactory.getExpenses();
+		//$scope.expenses = StorageFactory.getExpenses();
 		$scope.settings = {
 			startDate: '0001-01-01',
 			endDate: '9999-12-31',
@@ -44,6 +44,7 @@
 			groupyBy: 'None'
 		};
 		$scope.newSettings = $scope.settings;
+		
 		$ionicModal.fromTemplateUrl('lib/expenseSettings.html',function(modal) {
 			$scope.settingsModal = modal;
 		}, {
@@ -58,5 +59,25 @@
 		$scope.closeSettings = function() {
 			$scope.settingsModal.hide();
 		};
+		var data = StorageFactory.getExpenses();
+		
+		$scope.filteredData = [];
+
+		$scope.filter = function() {
+			//var l = data.length();
+			$scope.filteredData = [];
+			for(var i=0;i<data.length;i++) {
+				if(data[i].date >= $scope.settings.startDate && data[i].date <= $scope.settings.endDate && 
+					data[i].amount >= $scope.settings.min && data[i].amount <= $scope.settings.max) {
+					$scope.filteredData.push(data[i]);
+				}
+			};
+		};
+
+		$scope.applySettings = function() {
+			$scope.settings = $scope.newSettings;
+			$scope.filter();
+			$scope.settingsModal.hide();
+		}
 	});
 })();

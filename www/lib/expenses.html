@@ -10,7 +10,13 @@
         <i class="icon ion-plus-circled"></i>
       </button>
     </ion-header-bar>
-    <ion-content>
+    <ion-content ng-init="filter()">
+      <ion-list>
+        <ion-item ng-repeat="item in filteredData">
+          Amount : {{item.amount}}<br>
+          Date : {{item.date}}
+        </ion-item>
+      </ion-list>
     </ion-content>
     <div class="tabs">
       <a class="tab-item" href="#alerts">
